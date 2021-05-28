@@ -1,0 +1,199 @@
+:root {
+  --main-white: #ffffff;
+  --a-text-color: rgba(22, 248, 15, 0.8);
+  --secondary-color: rgb(14, 177, 14);
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.431);
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav nav"
+    "aside main main main"
+    "aside main main main"
+    "footer footer footer footer";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 0.1fr 1.5fr 0.1fr 0.1fr;
+  height: 100%;
+}
+.container nav h1 {
+  color: rgba(22, 248, 15, 0.8);
+}
+.container nav {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: linear-gradient(#4e4c4c, rgb(51, 46, 46));
+  border-bottom: 5px solid var(--secondary-color);
+  animation: brigthnessHandling 10s infinite;
+  grid-area: nav;
+}
+.container nav > ul > li {
+  display: inline-flex;
+  padding: 6px;
+  font-size: 20px;
+  border-right: 1px solid #000;
+}
+.container nav > ul > li > a {
+  text-decoration: none;
+  display: block;
+  color: var(--a-text-color);
+}
+.container aside {
+  box-shadow: 5px 0 4px rgba(51, 48, 48, 0.431);
+  z-index: 9997;
+  background: linear-gradient(#414040, rgb(41, 38, 38));
+  grid-area: aside;
+}
+.container main {
+  background: linear-gradient(#5c5b5b, rgb(71, 69, 69));
+  grid-area: main;
+  min-height: 850px;
+}
+.container footer {
+  display: flex;
+  align-items: center;
+  grid-area: footer;
+  animation: brigthnessHandling 10s infinite;
+  padding: 5px;
+  background: linear-gradient(#4e4c4c, rgb(51, 46, 46));
+  border-top: 5px solid var(--secondary-color);
+}
+.container footer > ul > li {
+  display: inline-flex;
+  padding: 5px;
+  overflow: hidden;
+  border-right: 1px solid #000;
+}
+.main-container {
+  margin-top: 30px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  overflow: hidden;
+}
+
+.main-container img {
+  width: 350px;
+  height: 250px;
+  cursor: pointer;
+}
+
+.main-container img:hover {
+  box-shadow: 0 0 7px rgb(221, 214, 214);
+  filter: brightness(90%);
+  filter: saturate(200%);
+  transition: all 300ms;
+}
+.container aside .aside-element-container ul li {
+  padding: 8px;
+  background: linear-gradient(rgb(54, 54, 54), rgb(63, 61, 61));
+  border-bottom: 1px solid rgba(22, 248, 15, 0.8);
+  text-align: center;
+}
+.container aside h3 {
+  text-align: center;
+  color: var(--main-white);
+  margin: 20px 0 20px 0;
+  font-size: 25px;
+}
+.container aside .aside-element-container ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+main h2 {
+  text-align: center;
+  color: var(--main-white);
+  margin: 30px 0 30px 0;
+  font-size: 30px;
+}
+.container footer li a {
+  color: rgba(22, 248, 15, 0.8);
+  text-decoration: none;
+}
+.main-btn {
+  background: linear-gradient(var(--secondary-color), green);
+  border: none;
+  padding: 5px;
+  color: var(--main-white);
+  border-radius: 5px;
+  min-width: 100px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width:50%;
+}
+article p {
+  text-align: center;
+  color: var(--main-white);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+@media (max-width: 1400px) {
+  .container {
+    grid-template-columns: 0.5fr repeat(3, 0.7fr);
+  }
+  .main-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-container .img-container {
+    margin: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-areas:
+      "nav"
+      "aside"
+      "main"
+      "footer";
+    grid-template-rows: 0fr 0fr 1fr 0fr;
+  }
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+  .main-container img {
+    margin: auto;
+    width: 95vw;
+  }
+}
+@media (max-width: 500px) {
+}
+@keyframes brigthnessHandling {
+  0% {
+    filter: brightness(100%);
+    filter: saturate(200%);
+  }
+  20% {
+    filter: brightness(150%);
+  }
+  40% {
+    filter: brightness(100%);
+  }
+  60% {
+    filter: brightness(150%);
+  }
+  80% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(150%);
+  }
+}
